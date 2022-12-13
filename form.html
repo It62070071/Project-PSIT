@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Form</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+
+        // ส่งข้อมูลจากฟอร์มไปบันทึกใน excel
+        function SubForm (){
+            $.ajax({
+                url:"https://api.apispreadsheets.com/data/GM7ybyLWygWmbMi7/",
+                type:'post',
+                data:$("#myForm").serializeArray(),
+                success: function(){
+                    alert("Form Data Submitted :)")
+                },
+                error: function(){
+                    alert("There was an error :(")
+                }
+            });
+        }
+
+        // Validation Form เพื่อป้องกันการตกหล่นในการใส่ข้อมูล
+        function validateForm(){
+            if(document.forms["data_form"]["Day"].value == ""){ // ตรวจสอบการใส่ข้อมูลวันที่
+                alert("Please Fill Day");
+                document.data_form.Day.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Month"].value == ""){ // ตรวจสอบการใส่ข้อมูลเดือน
+                alert("Please Fill Month");
+                document.data_form.Month.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Year"].value == ""){ // ตรวจสอบการใส่ข้อมูลปี
+                alert("Please Fill Year");
+                document.data_form.Year.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Date"].value == ""){ // ตรวจสอบการใส่ข้อมูลวันที่แบบเต็ม e.g. 1/1/2023
+                alert("Please Fill Date");
+                document.data_form.Date.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Email"].value == ""){ // ตรวจสอบการใส่ข้อมูล Email
+                alert("Please Fill Email");
+                document.data_form.Email.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Unit"].value == ""){ // ตรวจสอบการใส่ข้อมูลจำนวนของสินค้า
+                alert("Please Fill Unit");
+                document.data_form.Unit.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Product"].value == ""){ // ตรวจสอบการใส่ข้อมูลชื่อของสินค้า
+                alert("Please Fill Product Name");
+                document.data_form.Product.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Unit_Price"].value == ""){ // ตรวจสอบการใส่ข้อมูลราคาของสินค้า
+                alert("Please Fill Unit Price");
+                document.data_form.Unit_Price.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Receipt_ID"].value == ""){ // ตรวจสอบการใส่ข้อมูลรหัสใบเสร็จ
+                alert("Please Fill Receipt ID");
+                document.data_form.Receipt_ID.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Tax_ID"].value == ""){ // ตรวจสอบการใส่ข้อมูลรหัสภาษี
+                alert("Please Fill Tax ID");
+                document.data_form.Tax_ID.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Tel"].value == ""){ // ตรวจสอบการใส่ข้อมูลเบอร์โทรศัพท์
+                alert("Please Fill Tel");
+                document.data_form.Tel.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Name"].value == ""){ // ตรวจสอบการใส่ข้อมูลชื่อบริษัทหรือชื่อของผู้รับเงิน
+                alert("Please Fill Name");
+                document.data_form.Name.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Address1_1"].value == ""){ // ตรวจสอบการใส่ข้อมูลที่อยู่ e.g. บ้านเลขที่ ถนน ซอย
+                alert("Please Fill Address1_1");
+                document.data_form.Address1_1.focus();
+                return false;
+            }
+            if(document.forms["data_form"]["Address1_2"].value == ""){ // ตรวจสอบการใส่ข้อมูลที่อยู่ e.g. แขวง เขต ตำบล อำเภอ จังหวัด รหัสไปรษณีย์
+                alert("Please Fill Address1_2");
+                document.data_form.Address1_2.focus();
+                return false;
+            }
+            else{ // เมื่อทำการเช็คเงื่อนไขทั้งหมดแล้วถูกต้อง จะทำการเรียกใช้งาน Function SubForm เพื่อทำการบันทึกข้อมูล
+                SubForm();
+            }
+        }
+
+    </script>
+    <style>
+        .label{
+            font-family: Helvetica;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" name="data_form" onsubmit="">
+        <div class="box m-6" style="background-color: #CDFCF6; border-radius: 2.5%;">
+            <!-- 1 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Day</label>
+                        <div class="control">
+                            <input class="input" type="number" min="1" max="31" placeholder="Day e.g. 1" name="Day">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Month</label>
+                        <div class="control">
+                            <input class="input" type="number" min="1" max="12" placeholder="Month e.g. 1" name="Month">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Year</label>
+                        <div class="control">
+                            <input class="input" type="number" min="2000" placeholder="Year e.g. 2023" name="Year">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Date</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Date e.g. 1/1/2023" name="Date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" placeholder="Email" name="Email">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 6 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Unit</label>
+                        <div class="control">
+                            <input class="input" type="number" placeholder="Unit จำนวนสินค้า" name="Unit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 7 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Product</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Product ชื่อสินค้า" name="Product">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 8 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Unit Price</label>
+                        <div class="control">
+                            <input class="input" type="number" placeholder="Unit Price ราคาสินค้า" name="Unit_Price">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 9 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Receipt ID</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Receipt ID รหัสใบเสร็จ e.g. RC001FIR" name="Receipt_ID">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 10 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Tax ID</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Tax ID รหัสภาษี e.g. 990011550088" name="Tax_ID">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 11 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Tel</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Tel เบอร์โทรศัพท์" name="Tel">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 12 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Name ชื่อบริษัทหรือชื่อของผู้รับเงิน" name="Name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 13 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Address 1_1</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Address 1_1 ข้อมูลที่อยู่ e.g. บ้านเลขที่ ถนน ซอย" name="Address1_1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 14 -->
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="field">
+                        <label class="label">Address 1_2</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Address 1_2 ข้อมูลที่อยู่ e.g. แขวง เขต ตำบล อำเภอ จังหวัด รหัสไปรษณีย์" name="Address1_2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-mobile" align="center">
+            <div class="column is-half is-offset-one-quarter">
+                <button class="button is-info is-half is-rounded is-fullwidth" style="font-weight: bold;" onclick="validateForm()">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
