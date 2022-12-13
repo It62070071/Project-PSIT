@@ -26,77 +26,77 @@
 
         // Validation Form เพื่อป้องกันการตกหล่นในการใส่ข้อมูล
         function validateForm(){
-            if(document.forms["data_form"]["Day"].value == ""){ // ตรวจสอบการใส่ข้อมูลวันที่
+            if(document.forms["data_form"]["Day"].value == ""){
                 alert("Please Fill Day");
                 document.data_form.Day.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Month"].value == ""){ // ตรวจสอบการใส่ข้อมูลเดือน
+            if(document.forms["data_form"]["Month"].value == ""){
                 alert("Please Fill Month");
                 document.data_form.Month.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Year"].value == ""){ // ตรวจสอบการใส่ข้อมูลปี
+            if(document.forms["data_form"]["Year"].value == ""){
                 alert("Please Fill Year");
                 document.data_form.Year.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Date"].value == ""){ // ตรวจสอบการใส่ข้อมูลวันที่แบบเต็ม e.g. 1/1/2023
+            if(document.forms["data_form"]["Date"].value == ""){
                 alert("Please Fill Date");
                 document.data_form.Date.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Email"].value == ""){ // ตรวจสอบการใส่ข้อมูล Email
+            if(document.forms["data_form"]["Email"].value == ""){
                 alert("Please Fill Email");
                 document.data_form.Email.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Unit"].value == ""){ // ตรวจสอบการใส่ข้อมูลจำนวนของสินค้า
+            if(document.forms["data_form"]["Unit"].value == ""){
                 alert("Please Fill Unit");
                 document.data_form.Unit.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Product"].value == ""){ // ตรวจสอบการใส่ข้อมูลชื่อของสินค้า
+            if(document.forms["data_form"]["Product"].value == ""){
                 alert("Please Fill Product Name");
                 document.data_form.Product.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Unit_Price"].value == ""){ // ตรวจสอบการใส่ข้อมูลราคาของสินค้า
+            if(document.forms["data_form"]["Unit_Price"].value == ""){
                 alert("Please Fill Unit Price");
                 document.data_form.Unit_Price.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Receipt_ID"].value == ""){ // ตรวจสอบการใส่ข้อมูลรหัสใบเสร็จ
+            if(document.forms["data_form"]["Receipt_ID"].value == ""){
                 alert("Please Fill Receipt ID");
                 document.data_form.Receipt_ID.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Tax_ID"].value == ""){ // ตรวจสอบการใส่ข้อมูลรหัสภาษี
+            if(document.forms["data_form"]["Tax_ID"].value == ""){
                 alert("Please Fill Tax ID");
                 document.data_form.Tax_ID.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Tel"].value == ""){ // ตรวจสอบการใส่ข้อมูลเบอร์โทรศัพท์
+            if(document.forms["data_form"]["Tel"].value == ""){
                 alert("Please Fill Tel");
                 document.data_form.Tel.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Name"].value == ""){ // ตรวจสอบการใส่ข้อมูลชื่อบริษัทหรือชื่อของผู้รับเงิน
+            if(document.forms["data_form"]["Name"].value == ""){
                 alert("Please Fill Name");
                 document.data_form.Name.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Address1_1"].value == ""){ // ตรวจสอบการใส่ข้อมูลที่อยู่ e.g. บ้านเลขที่ ถนน ซอย
+            if(document.forms["data_form"]["Address1_1"].value == ""){
                 alert("Please Fill Address1_1");
                 document.data_form.Address1_1.focus();
                 return false;
             }
-            if(document.forms["data_form"]["Address1_2"].value == ""){ // ตรวจสอบการใส่ข้อมูลที่อยู่ e.g. แขวง เขต ตำบล อำเภอ จังหวัด รหัสไปรษณีย์
+            if(document.forms["data_form"]["Address1_2"].value == ""){
                 alert("Please Fill Address1_2");
                 document.data_form.Address1_2.focus();
                 return false;
             }
-            else{ // เมื่อทำการเช็คเงื่อนไขทั้งหมดแล้วถูกต้อง จะทำการเรียกใช้งาน Function SubForm เพื่อทำการบันทึกข้อมูล
+            else{
                 SubForm();
             }
         }
@@ -109,7 +109,7 @@
     </style>
 </head>
 <body>
-    <form id="myForm" name="data_form" onsubmit="">
+    <form id="myForm" name="data_form">
         <div class="box m-6" style="background-color: #CDFCF6; border-radius: 2.5%;">
             <!-- 1 -->
             <div class="columns is-mobile">
